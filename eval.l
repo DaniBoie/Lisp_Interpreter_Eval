@@ -35,8 +35,18 @@
 
 ;; You need to write this one.
 
-(defun my-assoc (v alist)
-  nil
+(defun my-assoc (v alist) ;; Takes Atom A and association list ALIST : Returns the association pair for A in ALIST. If there is no association, it returns nil
+    (cond
+    ((equal 0 (MY-LENGTH alist)) ;; Base Case : If null association list return nil
+      nil
+    )
+    ((equal v (caar alist)) ;; If atom A == current alist.key return (alist.key, alist.value)
+      (car alist)
+    )
+    (T ;; else recurse down searching for match
+      (MY-ASSOC v (cdr alist))
+    )
+  )
 )
 
 ;; This one is done
