@@ -141,7 +141,7 @@
           ;; I wrote the first one, eq, for you, you write the rest
           ((eq fn 'car)
             (cond
-              (car (my-eval (car args)))
+              (car (my-eval (cadr args)))
             )
           )
           ((eq fn 'cdr)
