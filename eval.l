@@ -180,7 +180,14 @@
 ;; Remember, cond clauses have one or more expressions in each clause.
 
 (defun my-eval-cond (clauses alist)
-nil
+  (cond
+    ((null clauses)
+      nil
+    )
+    (
+      (print clauses)
+    )
+  )
 )
 
 ;; You need to write this one.
