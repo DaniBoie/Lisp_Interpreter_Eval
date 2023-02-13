@@ -168,7 +168,7 @@
 
 (defun my-eval-setq (var val)
 
-  (setq global-alist (cons (cons (quote var) (quote val)) global-alist))
+  (setq global-alist (cons (cons var val) global-alist))
 ;; just push a new association of the var and its evaluated val onto the
 ;; global alist
 )
