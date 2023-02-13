@@ -185,7 +185,7 @@
       nil
     )
     ((my-eval (caar clauses) alist)
-      (my-eval (cadar clauses) alist)
+      (my-eval (cdar clauses) alist)
     )
     (T
       (print (car clauses))
