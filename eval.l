@@ -184,10 +184,11 @@
     ((null clauses)
       nil
     )
-    ((equal T (my-eval (caar clauses) alist))
-      (my-eval (cdar clauses) alist)
-    )
+    ;;((equal T (my-eval (caar clauses) alist))
+    ;;  (my-eval (cdar clauses) alist)
+    ;;)
     (T
+      (car clauses)
       (my-eval-cond (cdr clauses) alist)
     )
   )
