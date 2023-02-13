@@ -147,9 +147,10 @@
           ((eq fn 'cons)
           )
           ((eq fn 'quote)
+            (car args)
           )
           ((eq fn 'setq) (my-eval-setq ;; you'll have to figure out the arguments to pass
-                                (car args) (cadr args)))
+                                (car args) (my-eval (cadr args) alist)))
           ((eq fn 'cond) (my-eval-cond args alist))
           ((eq fn 'defun) (my-eval-defun args alist))
           ((eq fn 'eval) (my-eval (my-eval (car args) alist) alist))
