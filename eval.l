@@ -188,7 +188,7 @@
     ;;  (my-eval (cdar clauses) alist)
     ;;)
     (T
-      (car clauses)
+      (print (car clauses))
       (my-eval-cond (cdr clauses) alist)
     )
   )
