@@ -63,17 +63,22 @@
 ;; how do you evaluate an atom???
 ;; Remember there are special cases: T, NIL, MY-SYMBOL, 10, "Hello"
   (cond
-  ((eq T e))
-    T
-  )
-  ((null e)
-    nil
-  )
-  ((stringp e)
-    e
-  )
-  ((numberp e)
-    e
+  
+    ((eq T e)
+      T
+    )
+    ((null e)
+      nil
+    )
+    ((stringp e)
+      e
+    )
+    ((numberp e)
+      e
+    )
+
+
+
   )
 )
 
