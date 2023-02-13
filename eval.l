@@ -77,7 +77,14 @@
       e
     )
     ((symbolp e)
-      (cons e nil)
+      (cond
+        ((equal nil (my-assoc e alist))
+          nil
+        )
+        (T
+          (cdr (my-assoc e alist))
+        )
+      );; CURRENTLY NOT IMPLEMENTED ONLY RETURNING DUMMY EVAL
     )
 
 
@@ -133,6 +140,7 @@
            (eq (my-eval (car args) alist) (my-eval (cadr args) alist)))
           ;; I wrote the first one, eq, for you, you write the rest
           ((eq fn 'car)
+
           )
           ((eq fn 'cdr)
           )
