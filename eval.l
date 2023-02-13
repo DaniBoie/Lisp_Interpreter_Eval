@@ -76,7 +76,9 @@
     ((numberp e)
       e
     )
-
+    ((symbolp e)
+      (cons e nil)
+    )
 
 
   )
