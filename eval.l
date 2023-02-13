@@ -62,6 +62,19 @@
 (defun my-eval-atom (e alist)
 ;; how do you evaluate an atom???
 ;; Remember there are special cases: T, NIL, MY-SYMBOL, 10, "Hello"
+  (cond
+  ((eq T e))
+    T
+  )
+  ((eq nil e)
+    nil
+  )
+  ((stringp e)
+    e
+  )
+  ((numberp e)
+    e
+  )
 )
 
 ;; This one is done, but you must write the functions it calls
