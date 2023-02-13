@@ -191,7 +191,8 @@ nil
 ;; the function body. defun returns the name of the function.
 
 (defun my-eval-defun (body alist)
-nil
+  (setq global-alist (cons body global-alist))
+  (car body)
 )
 
 ;; This one is done, it just initializes the global alist where global
