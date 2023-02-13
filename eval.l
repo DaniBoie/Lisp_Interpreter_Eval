@@ -184,9 +184,9 @@
     ((null clauses)
       nil
     )
-    ;;((equal T (my-eval (caar clauses) alist))
-    ;;  (my-eval (cdar clauses) alist)
-    ;;)
+    ((my-eval (caar clauses) alist)
+      (my-eval (cadar clauses) alist)
+    )
     (T
       (print (car clauses))
       (my-eval-cond (cdr clauses) alist)
