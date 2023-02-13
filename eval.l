@@ -140,9 +140,7 @@
            (eq (my-eval (car args) alist) (my-eval (cadr args) alist)))
           ;; I wrote the first one, eq, for you, you write the rest
           ((eq fn 'car)
-            (cond
-              (car (my-eval (cadr args) alist))
-            )
+            (car (my-eval (car args) alist))
           )
           ((eq fn 'cdr)
           )
