@@ -66,7 +66,7 @@
   ((eq T e))
     T
   )
-  ((eq nil e)
+  ((null e)
     nil
   )
   ((stringp e)
