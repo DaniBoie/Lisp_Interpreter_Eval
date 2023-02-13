@@ -184,8 +184,11 @@
     ((null clauses)
       nil
     )
-    (
-      (print clauses)
+    ((equal T (my-eval (caar clauses) alist))
+      (my-eval (cdar clauses) alist)
+    )
+    (T
+      (my-eval-cond (cdr clauses) alist)
     )
   )
 )
