@@ -149,7 +149,7 @@
           ((eq fn 'quote)
           )
           ((eq fn 'setq) (my-eval-setq ;; you'll have to figure out the arguments to pass
-                                nil nil))
+                                (car args) (cadr args)))
           ((eq fn 'cond) (my-eval-cond args alist))
           ((eq fn 'defun) (my-eval-defun args alist))
           ((eq fn 'eval) (my-eval (my-eval (car args) alist) alist))
