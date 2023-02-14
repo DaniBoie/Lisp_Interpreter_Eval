@@ -138,15 +138,14 @@
 ;; Note there will be one actual parameter for each formal parameter.
   (cond
     ((null formals)
-      ;;(print "NULL!")
+      (print "NULL!")
       alist
     )
     (T
       ;;(print "not NULL")
-      alist
-      ;;(print formals)
-      ;;(print actuals)
-      ;;(my-bind-formals (cdr formals) (cdr actuals) alist)
+      (print formals)
+      (print actuals)
+      (my-bind-formals (cdr formals) (cdr actuals) alist)
       ;;(cons (my-eval (car formals) alist) (my-eval (car actuals) alist))
 
     )
