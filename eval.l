@@ -224,7 +224,8 @@
 ;; You need to write this one.
 
 (defun my-eval-setq (var val)
-
+  (print var)
+  (print val)
   (setq global-alist (cons (cons var val) global-alist))
 ;; just push a new association of the var and its evaluated val onto the
 ;; global alist
