@@ -142,8 +142,10 @@
       alist
     )
     (T
-      (print formals)
-      (print actuals)
+      (print "not NULL")
+      alist
+      ;;(print formals)
+      ;;(print actuals)
       ;;(my-bind-formals (cdr formals) (cdr actuals) alist)
       ;;(cons (my-eval (car formals) alist) (my-eval (car actuals) alist))
 
