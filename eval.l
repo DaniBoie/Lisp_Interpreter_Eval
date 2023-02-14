@@ -205,7 +205,7 @@
           ((eq fn 'listp)
             (listp (my-eval (car args) alist))
           )
-          ((eq fn '+)
+          ((or (eq fn '+) (eq fn 'add))
             (+ (my-eval (car args) alist) (my-eval (cadr args) alist))
           )
           ((eq fn '-)
