@@ -215,7 +215,7 @@
       nil
     )
     ((my-eval (caar clauses) alist)
-      (my-eval (cdar clauses) alist) ;; THIS DOES WORK but list eval currently not implemented
+      (my-eval-list (cdar clauses) alist) ;; THIS DOES WORK but list eval currently not implemented
     )
     (T
       (print (car clauses))
