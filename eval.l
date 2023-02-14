@@ -207,7 +207,7 @@
             (- (my-eval (car args) alist) (my-eval (cadr args) alist))
           )
           ((eq fn 'mod)
-            (mod (my-eval (car args) alist))
+            (mod (my-eval (car args) alist) (my-eval (cadr args) alist))
           )
           ((eq fn 'floor)
             (floor (my-eval (car args) alist))
