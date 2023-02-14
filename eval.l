@@ -215,10 +215,9 @@
       nil
     )
     ((my-eval (caar clauses) alist)
-      (my-eval-list (cdar clauses) alist) ;; THIS DOES WORK but list eval currently not implemented
+      (my-eval-list (cdar clauses) alist)
     )
     (T
-      (print (car clauses))
       (my-eval-cond (cdr clauses) alist)
     )
   )
@@ -233,6 +232,7 @@
 
 (defun my-eval-defun (body alist)
   (setq global-alist (cons body global-alist))
+  (print global-alist)
   (car body)
 )
 
