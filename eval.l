@@ -138,11 +138,11 @@
 ;; Note there will be one actual parameter for each formal parameter.
   (cond
     ((null formals)
-      (print "NULL!")
+      ;;(print "NULL!")
       alist
     )
     (T
-      (print "not NULL")
+      ;;(print "not NULL")
       alist
       ;;(print formals)
       ;;(print actuals)
