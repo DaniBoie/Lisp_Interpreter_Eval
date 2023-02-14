@@ -52,7 +52,7 @@
 ;; This one is done
 
 (defun my-eval (e alist)
-    (print e)
+    (print "MY-EVAL CALL TO: " e)
     (cond ((atom e) (my-eval-atom e alist))
           (t (my-apply (car e) (cdr e) alist))
     )
@@ -124,6 +124,10 @@
 ;; new scoping context (i.e., that becomes the new alist for recursive
 ;; evaluation of the function body.  Return the value of the last 
 ;; expression in the body (using eval-list)).
+  (print "my-apply-lambda")
+  (print fn)
+  (print args)
+
 )
 
 ;; You need to write this one.
@@ -134,38 +138,18 @@
 ;; the front of the alist.  It should return the alist with the new bindings
 ;; on the front.  This will be used to evaluate calls to functions defined
 ;; via defun.
-;; e.g., (my-bind-formals '(a) '((add 1 b)) '((b . 10)))
+;; e.g., (my-bind-formals '(a c) '((add 1 b) (add 2 b)) '((b . 10)))
 ;; will return ((a . 11) (b . 10))
 ;; Note there will be one actual parameter for each formal parameter.
   (cond
     ((null formals)
-      (print "NULL!")
       alist
     )
     (T
-      ;;(print "not NULL")
-      (print formals)
-      (print actuals)
-
       (cons 
         (cons (car formals) (my-eval (car actuals) alist))
         (my-bind-formals (cdr formals) (cdr actuals) alist)
       )
-      
-      ;;(my-bind-formals 
-      ;;  (cdr formals) 
-      ;;  (cdr actuals) 
-      ;;  (cons 
-      ;;    (cons 
-      ;;      (car formals) 
-      ;;      (my-eval (car actuals) alist)
-      ;;    )
-;;
-      ;;    alist
-      ;;  ) 
-      ;;)
-      
-
     )
   )
 )
@@ -222,7 +206,7 @@
           ((eq fn 'cond) (my-eval-cond args alist))
           ((eq fn 'defun) (my-eval-defun args alist))
           ((eq fn 'eval) (my-eval (my-eval (car args) alist) alist))
-          (T (my-apply nil ;; get the lambda from the alist
+          (T (my-apply (my-assoc fn alist) ;; get the lambda from the alist
                        args alist))
     )
 )
@@ -268,9 +252,8 @@
 
 (defun my-eval-defun (body alist)
   (setq global-alist (cons body global-alist))
-  (print (car global-alist))
-  (print (caar global-alist))
-  (print (cdar global-alist))
+  ;; (print (caar global-alist)) -> function name
+  ;; (print (cdar global-alist)) -> ((function params), functiondef)
   (car body)
 )
 
