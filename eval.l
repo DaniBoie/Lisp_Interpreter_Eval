@@ -52,8 +52,6 @@
 ;; This one is done
 
 (defun my-eval (e alist)
-    ;;(print "MY-EVAL CALL TO:")
-    ;;(print e)
     (cond ((atom e) (my-eval-atom e alist))
           (t (my-apply (car e) (cdr e) alist))
     )
@@ -102,7 +100,7 @@
 ;; Utility function for eval-cond and apply-lambda.  Evaluates each expression
 ;; in l and returns the value of the last expression
 
-(defun my-eval-list (l alist) ;; STILL NOT TESTED IN IMPLEMENTATION PHASE
+(defun my-eval-list (l alist)
   (cond
 
     ((null l)
@@ -125,15 +123,7 @@
 ;; new scoping context (i.e., that becomes the new alist for recursive
 ;; evaluation of the function body.  Return the value of the last 
 ;; expression in the body (using eval-list)).
-
-  ; (print "my-apply-lambda")
-  ; (print (car fn))
-  ; (print (cdr fn))
-  ; (print args)
-  
-  
   (my-eval-list (cdr fn) (my-bind-formals (car fn) args alist))
-
 )
 
 ;; You need to write this one.
@@ -152,11 +142,6 @@
       alist
     )
     (T
-      ;;(my-bind-formals 
-      ;;  (cdr formals) 
-      ;;  (cdr actuals) 
-      ;;  (cons (cons (car formals) (my-eval (car actuals) alist)) alist) 
-      ;;)
       (cons 
         (cons (car formals) (my-eval (car actuals) alist))
         (my-bind-formals (cdr formals) (cdr actuals) alist)
@@ -231,8 +216,6 @@
 ;; You need to write this one.
 
 (defun my-eval-setq (var val)
-  ; (print var)
-  ; (print val)
   (setq global-alist (cons (cons var val) global-alist))
 ;; just push a new association of the var and its evaluated val onto the
 ;; global alist
@@ -264,8 +247,6 @@
 
 (defun my-eval-defun (body alist)
   (setq global-alist (cons body global-alist))
-  ;; (print (caar global-alist)) -> function name
-  ;; (print (cdar global-alist)) -> ((function params), functiondef)
   (car body)
 )
 
