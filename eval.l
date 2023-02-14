@@ -52,6 +52,7 @@
 ;; This one is done
 
 (defun my-eval (e alist)
+    (print e)
     (cond ((atom e) (my-eval-atom e alist))
           (t (my-apply (car e) (cdr e) alist))
     )
