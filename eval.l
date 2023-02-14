@@ -125,9 +125,9 @@
 ;; new scoping context (i.e., that becomes the new alist for recursive
 ;; evaluation of the function body.  Return the value of the last 
 ;; expression in the body (using eval-list)).
-  ;;(print "my-apply-lambda")
-  ;;(print fn)
-  ;;(print args)
+  (print "my-apply-lambda")
+  (print fn)
+  (print args)
   
   
   (my-eval-list (cdr fn) (my-bind-formals (car fn) args alist))
@@ -150,7 +150,11 @@
       alist
     )
     (T
-      (my-bind-formals (cdr formals) (cdr actuals) (cons (cons (car formals) (my-eval (car actuals) alist)) alist) )
+      (my-bind-formals 
+        (cdr formals) 
+        (cdr actuals) 
+        (cons (cons (car formals) (my-eval (car actuals) alist)) alist) 
+      )
       ;;(cons 
       ;;  (cons (car formals) (my-eval (car actuals) alist))
       ;;  (my-bind-formals (cdr formals) (cdr actuals) alist)
