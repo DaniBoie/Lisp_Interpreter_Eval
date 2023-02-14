@@ -125,10 +125,11 @@
 ;; new scoping context (i.e., that becomes the new alist for recursive
 ;; evaluation of the function body.  Return the value of the last 
 ;; expression in the body (using eval-list)).
-  (print "my-apply-lambda")
-  (print (car fn))
-  (print (cdr fn))
-  (print args)
+
+  ; (print "my-apply-lambda")
+  ; (print (car fn))
+  ; (print (cdr fn))
+  ; (print args)
   
   
   (my-eval-list (cdr fn) (my-bind-formals (car fn) args alist))
@@ -230,8 +231,8 @@
 ;; You need to write this one.
 
 (defun my-eval-setq (var val)
-  (print var)
-  (print val)
+  ; (print var)
+  ; (print val)
   (setq global-alist (cons (cons var val) global-alist))
 ;; just push a new association of the var and its evaluated val onto the
 ;; global alist
