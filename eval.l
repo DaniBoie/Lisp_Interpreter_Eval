@@ -52,8 +52,8 @@
 ;; This one is done
 
 (defun my-eval (e alist)
-    (print "MY-EVAL CALL TO:")
-    (print e)
+    ;;(print "MY-EVAL CALL TO:")
+    ;;(print e)
     (cond ((atom e) (my-eval-atom e alist))
           (t (my-apply (car e) (cdr e) alist))
     )
@@ -125,12 +125,12 @@
 ;; new scoping context (i.e., that becomes the new alist for recursive
 ;; evaluation of the function body.  Return the value of the last 
 ;; expression in the body (using eval-list)).
-  (print "my-apply-lambda")
-  (print fn)
-  (print args)
-  (my-bind-formals (car fn) args alist)
+  ;;(print "my-apply-lambda")
+  ;;(print fn)
+  ;;(print args)
   
-  ;;(my-eval-list (cdr fn) )
+  
+  (my-eval-list (cdr fn) (my-bind-formals (car fn) args alist))
 
 )
 
