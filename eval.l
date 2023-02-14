@@ -232,7 +232,8 @@
 
 (defun my-eval-defun (body alist)
   (setq global-alist (cons body global-alist))
-  (print global-alist)
+  (print (caar global-alist))
+  (print (cdar global-alist))
   (car body)
 )
 
