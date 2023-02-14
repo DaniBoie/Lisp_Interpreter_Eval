@@ -178,6 +178,9 @@
           ((eq fn 'null)
             (eq nil (car args))
           )
+          ((eq fn 'print)
+            (print (my-eval (car args) alist))
+          )
           ((eq fn 'setq) (my-eval-setq ;; you'll have to figure out the arguments to pass
                                 (car args) (my-eval (cadr args) alist)))
           ((eq fn 'cond) (my-eval-cond args alist))
