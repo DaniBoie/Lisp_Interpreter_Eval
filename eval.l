@@ -145,8 +145,9 @@
       ;;(print "not NULL")
       (print formals)
       (print actuals)
+      (print (cons (car formals) (my-eval (car actuals) alist)))
       (my-bind-formals (cdr formals) (cdr actuals) alist)
-      ;;(cons (my-eval (car formals) alist) (my-eval (car actuals) alist))
+      
 
     )
   )
