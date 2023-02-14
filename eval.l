@@ -126,7 +126,8 @@
 ;; evaluation of the function body.  Return the value of the last 
 ;; expression in the body (using eval-list)).
   (print "my-apply-lambda")
-  (print fn)
+  (print (car fn))
+  (print (cdr fn))
   (print args)
   
   
