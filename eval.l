@@ -128,8 +128,9 @@
   (print "my-apply-lambda")
   (print fn)
   (print args)
+  (my-bind-formals (car fn) args alist)
   
-  (my-eval-list (cdr fn) (my-bind-formals (car fn) args alist))
+  ;;(my-eval-list (cdr fn) )
 
 )
 
