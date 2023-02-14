@@ -152,15 +152,15 @@
       alist
     )
     (T
-      (my-bind-formals 
-        (cdr formals) 
-        (cdr actuals) 
-        (cons (cons (car formals) (my-eval (car actuals) alist)) alist) 
-      )
-      ;;(cons 
-      ;;  (cons (car formals) (my-eval (car actuals) alist))
-      ;;  (my-bind-formals (cdr formals) (cdr actuals) alist)
+      ;;(my-bind-formals 
+      ;;  (cdr formals) 
+      ;;  (cdr actuals) 
+      ;;  (cons (cons (car formals) (my-eval (car actuals) alist)) alist) 
       ;;)
+      (cons 
+        (cons (car formals) (my-eval (car actuals) alist))
+        (my-bind-formals (cdr formals) (cdr actuals) alist)
+      )
     )
   )
 )
