@@ -128,6 +128,8 @@
   (print "my-apply-lambda")
   (print fn)
   (print args)
+  
+  (my-eval-list (cdr fn) (my-bind-formals (car fn) args alist))
 
 )
 
@@ -207,7 +209,7 @@
           ((eq fn 'cond) (my-eval-cond args alist))
           ((eq fn 'defun) (my-eval-defun args alist))
           ((eq fn 'eval) (my-eval (my-eval (car args) alist) alist))
-          (T (my-apply (my-assoc fn alist) ;; get the lambda from the alist
+          (T (my-apply (cdr (my-assoc fn alist)) ;; get the lambda from the alist
                        args alist))
     )
 )
