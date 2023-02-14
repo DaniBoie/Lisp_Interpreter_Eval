@@ -188,7 +188,7 @@
             (car args)
           )
           ((eq fn 'null)
-            (eq nil (car args))
+            (eq nil (my-eval (car args) alist))
           )
           ((eq fn 'atom)
             (atom (my-eval (car args) alist))
