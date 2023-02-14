@@ -58,7 +58,7 @@
 )
 
 ;; You need to write this one.
-
+;; !!
 (defun my-eval-atom (e alist)
 ;; how do you evaluate an atom???
 ;; Remember there are special cases: T, NIL, MY-SYMBOL, 10, "Hello"
@@ -86,8 +86,6 @@
         )
       )
     )
-
-
   )
 )
 
@@ -102,8 +100,20 @@
 ;; Utility function for eval-cond and apply-lambda.  Evaluates each expression
 ;; in l and returns the value of the last expression
 
-(defun my-eval-list (l alist)
-  nil
+(defun my-eval-list (l alist) ;; STILL NOT TESTED IN IMPLEMENTATION PHASE
+  (cond
+
+    ((null l)
+      nil
+    )
+    ((null (cdr l))
+      (my-eval (car l) alist)
+    )
+    (T
+      (my-eval (car l) alist)
+      (my-eval-list (cdr l) alist)
+    )
+  )
 )
 
 ;; You need to write this one.
@@ -126,7 +136,18 @@
 ;; e.g., (my-bind-formals '(a) '((add 1 b)) '((b . 10)))
 ;; will return ((a . 11) (b . 10))
 ;; Note there will be one actual parameter for each formal parameter.
+  (cond
+    ((null formals)
+      alist
+    )
+    (T
+      (print formals)
+      (print actuals)
+      (my-bind-formals (cdr formals) (cdr actuals) alist)
+      ;;(cons (my-eval (car formals) alist) (my-eval (car actuals) alist))
 
+    )
+  )
 )
 
 ;; You need to write this one.  Handle the primitives as special cases, then
@@ -185,7 +206,7 @@
       nil
     )
     ((my-eval (caar clauses) alist)
-      (my-eval (cdar clauses) alist)
+      (my-eval (cdar clauses) alist) ;; THIS DOES WORK but list eval currently not implemented
     )
     (T
       (print (car clauses))
